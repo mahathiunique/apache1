@@ -1,85 +1,168 @@
-# APACHE-I ICU AI Decision Support System
+# 🏥 ApolloX AI
 
-## Project Structure
+### Explainable ICU Outcome Prediction & Clinical Decision Support System
 
-```
-apache1/
-├── backend/
-│   ├── app.py              # FastAPI application entry point
-│   ├── predictor.py        # Model loading & prediction logic
-│   ├── requirements.txt    # Python dependencies
-│   └── routes/
-│       ├── __init__.py
-│       ├── patient.py      # GET /patient/list, GET /patient/{id}
-│       ├── mortality.py    # POST /mortality/predict
-│       ├── los.py          # POST /los/predict
-│       └── apache_score.py # POST /apache/predict
-│
-├── frontend/
-│   ├── index.html
-│   ├── package.json
-│   ├── vite.config.js
-│   └── src/
-│       ├── main.jsx
-│       ├── App.jsx
-│       ├── index.css
-│       ├── components/
-│       │   ├── PatientCard.jsx
-│       │   ├── MortalityCard.jsx
-│       │   ├── LOSCard.jsx
-│       │   ├── ApacheScoreCard.jsx
-│       │   ├── PatientTable.jsx
-│       │   └── EditPatientModal.jsx
-│       ├── pages/
-│       │   ├── PatientDashboard.jsx
-│       │   └── ReceptionDashboard.jsx
-│       └── services/
-│           └── api.js
-│
-└── models/                 # Place your trained .pkl files here
-    ├── apache1_mortality_model.pkl
-    ├── apache1_los_model.pkl
-    └── apache_score_model.pkl
-```
+ApolloX AI is an intelligent healthcare analytics platform developed to assist Intensive Care Units (ICUs) in predicting critical patient outcomes using Machine Learning and Explainable Artificial Intelligence (XAI).
 
-## Setup
+The system provides real-time predictions for:
+
+✅ Mortality Risk Prediction
+✅ APACHE-IV Severity Score Estimation
+✅ Length of Stay (LOS) Forecasting
+✅ Clinical Risk Stratification
+✅ Explainable AI Insights (SHAP)
+
+---
+
+## 🚀 Project Overview
+
+Healthcare professionals continuously monitor complex patient information such as vital signs, laboratory results, physiological parameters, and clinical history.
+
+ApolloX AI transforms these clinical parameters into actionable intelligence through advanced Machine Learning models that support evidence-based decision making in critical care environments.
+
+The platform combines predictive analytics with explainability to improve trust, transparency, and clinical adoption.
+
+---
+
+## 🎯 Key Features
+
+### Mortality Risk Prediction
+
+Predicts the probability of patient mortality using ICU admission parameters and physiological measurements.
+
+### APACHE-IV Score Prediction
+
+Automatically estimates APACHE-IV severity scores to support critical care assessment.
+
+### Length of Stay Forecasting
+
+Forecasts ICU Length of Stay to assist resource allocation and hospital planning.
+
+### Explainable AI (XAI)
+
+Uses SHAP-based explanations to identify key factors influencing predictions.
+
+### Role-Based Dashboard
+
+Provides dedicated interfaces for:
+
+* Patient View
+* Receptionist View
+* Clinical Analytics Dashboard
+
+---
+
+## 🏗 System Architecture
+
+Patient Data
+↓
+Data Preprocessing
+↓
+Machine Learning Models
+├── Mortality Prediction
+├── APACHE-IV Prediction
+└── LOS Prediction
+↓
+Explainability Layer (SHAP)
+↓
+FastAPI Backend
+↓
+React Frontend Dashboard
+
+---
+
+## 🧠 Machine Learning Models
+
+| Model           | Objective                  |
+| --------------- | -------------------------- |
+| Mortality Model | Predict ICU Mortality Risk |
+| LOS Model       | Forecast Length of Stay    |
+| APACHE Model    | Estimate APACHE-IV Score   |
+
+### Performance
+
+#### Mortality Prediction
+
+* ROC-AUC: 0.81
+* Recall: 65%
+* F1 Score: 0.40
+
+#### Length of Stay Prediction
+
+* R² Score: 0.95
+* RMSE: 0.46
+
+#### APACHE-IV Prediction
+
+* R² Score: 0.99
+* RMSE: 1.97
+
+---
+
+## 💻 Technology Stack
 
 ### Backend
 
-```bash
-cd backend
-pip install -r requirements.txt
-uvicorn app:app --reload --host 0.0.0.0 --port 8000
-```
-
-Make sure the `models/` directory is one level above `backend/` and contains:
-- `apache1_mortality_model.pkl`
-- `apache1_los_model.pkl`
-- `apache_score_model.pkl`
+* FastAPI
+* Python
+* Scikit-Learn
+* Pandas
+* NumPy
+* Joblib
 
 ### Frontend
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+* React.js
+* Vite
+* Axios
+* CSS
 
-The frontend runs at http://localhost:5173 by default.
-Set `VITE_API_URL` environment variable to point to your backend if it's not on localhost:8000.
+### Explainability
 
-## API Endpoints
+* SHAP (SHapley Additive Explanations)
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | / | Health check |
-| GET | /patient/list | Paginated patient list |
-| GET | /patient/{id} | Get patient by UHID/IPNumber/ID |
-| POST | /mortality/predict | Predict mortality risk |
-| POST | /los/predict | Predict length of stay |
-| POST | /apache/predict | Predict APACHE score |
+### Machine Learning
 
-## User Roles
+* Random Forest
+* Gradient Boosting
+* Ensemble Learning
 
-- **Patient View** — Search patients, view AI predictions, vitals, and clinical insights
-- **Reception/Admin** — Browse all patients, filter, edit records, re-run predictions
+---
+
+## 🔬 Innovation
+
+ApolloX AI introduces a unified multi-task healthcare intelligence framework capable of simultaneously predicting:
+
+* Mortality Risk
+* APACHE-IV Severity
+* ICU Length of Stay
+
+while maintaining transparency through Explainable AI.
+
+This approach bridges the gap between predictive analytics and real-world clinical adoption.
+
+---
+
+## 📈 Future Scope
+
+* Real-time ICU Monitoring
+* Integration with Electronic Health Records (EHR)
+* Federated Healthcare Learning
+* AI-powered Treatment Recommendations
+* Multi-Hospital Deployment
+* ICU Resource Optimization
+
+---
+
+## 👨‍💻 Author
+
+**Mahathi M**
+
+Computer Science and Business Systems (CSBS)
+Chennai Institute of Technology (CIT)
+
+Machine Learning • Healthcare AI • Full Stack Development • Explainable AI
+
+---
+
+### Building Intelligent Healthcare Systems for Better Clinical Outcomes.
